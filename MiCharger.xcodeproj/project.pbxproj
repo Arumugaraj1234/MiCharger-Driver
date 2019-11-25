@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C4D0A709BC8EF463B3807BB /* Pods_MiCharger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386479F3F65E449E0CAA9B6A /* Pods_MiCharger.framework */; };
 		52483A71238B8EFD00E75AA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52483A70238B8EFD00E75AA8 /* AppDelegate.swift */; };
 		52483A73238B8EFD00E75AA8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52483A72238B8EFD00E75AA8 /* FirstViewController.swift */; };
 		52483A75238B8EFD00E75AA8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52483A74238B8EFD00E75AA8 /* SecondViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DC4135F6CC83A4BB5C56E30 /* Pods-MiCharger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiCharger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiCharger/Pods-MiCharger.debug.xcconfig"; sourceTree = "<group>"; };
+		386479F3F65E449E0CAA9B6A /* Pods_MiCharger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiCharger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52483A6D238B8EFD00E75AA8 /* MiCharger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiCharger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52483A70238B8EFD00E75AA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52483A72238B8EFD00E75AA8 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		52483A79238B8EFE00E75AA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52483A7C238B8EFE00E75AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52483A7E238B8EFE00E75AA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7398CB3E22B404C0BF800966 /* Pods-MiCharger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiCharger.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiCharger/Pods-MiCharger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4D0A709BC8EF463B3807BB /* Pods_MiCharger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3625CCCEFB77EEC9B5A7AC4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1DC4135F6CC83A4BB5C56E30 /* Pods-MiCharger.debug.xcconfig */,
+				7398CB3E22B404C0BF800966 /* Pods-MiCharger.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		52483A64238B8EFD00E75AA8 = {
 			isa = PBXGroup;
 			children = (
 				52483A6F238B8EFD00E75AA8 /* MiCharger */,
 				52483A6E238B8EFD00E75AA8 /* Products */,
+				3625CCCEFB77EEC9B5A7AC4E /* Pods */,
+				C9AB143E0C43194815DED69D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +72,71 @@
 		52483A6F238B8EFD00E75AA8 /* MiCharger */ = {
 			isa = PBXGroup;
 			children = (
-				52483A70238B8EFD00E75AA8 /* AppDelegate.swift */,
-				52483A72238B8EFD00E75AA8 /* FirstViewController.swift */,
-				52483A74238B8EFD00E75AA8 /* SecondViewController.swift */,
-				52483A76238B8EFD00E75AA8 /* Main.storyboard */,
-				52483A79238B8EFE00E75AA8 /* Assets.xcassets */,
-				52483A7B238B8EFE00E75AA8 /* LaunchScreen.storyboard */,
 				52483A7E238B8EFE00E75AA8 /* Info.plist */,
+				52483A76238B8EFD00E75AA8 /* Main.storyboard */,
+				52483A70238B8EFD00E75AA8 /* AppDelegate.swift */,
+				52483A89238B96FF00E75AA8 /* Model */,
+				52483A88238B96F700E75AA8 /* View */,
+				52483A87238B96EE00E75AA8 /* Controller */,
+				52483A86238B96DE00E75AA8 /* Extention */,
+				52483A85238B96CD00E75AA8 /* Services */,
+				52483A84238B96A600E75AA8 /* Support Files */,
 			);
 			path = MiCharger;
+			sourceTree = "<group>";
+		};
+		52483A84238B96A600E75AA8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		52483A85238B96CD00E75AA8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		52483A86238B96DE00E75AA8 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		52483A87238B96EE00E75AA8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52483A72238B8EFD00E75AA8 /* FirstViewController.swift */,
+				52483A74238B8EFD00E75AA8 /* SecondViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		52483A88238B96F700E75AA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52483A7B238B8EFE00E75AA8 /* LaunchScreen.storyboard */,
+				52483A79238B8EFE00E75AA8 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52483A89238B96FF00E75AA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9AB143E0C43194815DED69D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				386479F3F65E449E0CAA9B6A /* Pods_MiCharger.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +146,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52483A81238B8EFE00E75AA8 /* Build configuration list for PBXNativeTarget "MiCharger" */;
 			buildPhases = (
+				4F5CB583E20AB887A3F11105 /* [CP] Check Pods Manifest.lock */,
 				52483A69238B8EFD00E75AA8 /* Sources */,
 				52483A6A238B8EFD00E75AA8 /* Frameworks */,
 				52483A6B238B8EFD00E75AA8 /* Resources */,
+				88E73FCF4FB3F78D421AA89A /* [CP] Embed Pods Frameworks */,
+				08EC1EE919125D474A52BD9B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +207,73 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08EC1EE919125D474A52BD9B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MiCharger/Pods-MiCharger-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiCharger/Pods-MiCharger-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F5CB583E20AB887A3F11105 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MiCharger-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88E73FCF4FB3F78D421AA89A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MiCharger/Pods-MiCharger-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KOControls/KOControls.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KOControls.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiCharger/Pods-MiCharger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		52483A69238B8EFD00E75AA8 /* Sources */ = {
@@ -284,11 +426,13 @@
 		};
 		52483A82238B8EFE00E75AA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DC4135F6CC83A4BB5C56E30 /* Pods-MiCharger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5XN7T3JG5Q;
 				INFOPLIST_FILE = MiCharger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,11 +446,13 @@
 		};
 		52483A83238B8EFE00E75AA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7398CB3E22B404C0BF800966 /* Pods-MiCharger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5XN7T3JG5Q;
 				INFOPLIST_FILE = MiCharger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

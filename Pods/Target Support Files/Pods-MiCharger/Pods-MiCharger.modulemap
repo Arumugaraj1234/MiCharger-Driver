@@ -1,0 +1,6 @@
+framework module Pods_MiCharger {
+  umbrella header "Pods-MiCharger-umbrella.h"
+
+  export *
+  module * { export * }
+}
