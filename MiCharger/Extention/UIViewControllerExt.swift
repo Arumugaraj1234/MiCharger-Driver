@@ -63,10 +63,11 @@ extension UIViewController: NVActivityIndicatorViewable {
             
             var activityIndicator = UIActivityIndicatorView()
             activityIndicator.removeFromSuperview()
-            activityIndicator = UIActivityIndicatorView(style: .white)
+            activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
             activityIndicator.frame = CGRect(x: view.frame.midX - 50,
                                              y: view.frame.midY - 50 ,
                                              width: 100, height: 100)
+            activityIndicator.color = UIColor.black
             activityIndicator.startAnimating()
             
             view.addSubview(fadedView!)

@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		2C4D0A709BC8EF463B3807BB /* Pods_MiCharger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386479F3F65E449E0CAA9B6A /* Pods_MiCharger.framework */; };
+		522A2F0623A73F15007518EA /* HeadInstructionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A2F0523A73F15007518EA /* HeadInstructionLabel.swift */; };
+		522A2F0823A7453E007518EA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A2F0723A7453E007518EA /* LoginVC.swift */; };
+		522A2F0A23A7696E007518EA /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A2F0923A7696E007518EA /* WebService.swift */; };
+		522A2F0C23A76AEC007518EA /* AppInitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A2F0B23A76AEC007518EA /* AppInitModel.swift */; };
+		522A2F0E23A79961007518EA /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A2F0D23A79960007518EA /* SweetAlert.swift */; };
+		522A2F1023A7A3DD007518EA /* TextFiledExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A2F0F23A7A3DD007518EA /* TextFiledExt.swift */; };
+		522A2F1223A7A3E5007518EA /* UiImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A2F1123A7A3E5007518EA /* UiImageViewExt.swift */; };
 		52483A71238B8EFD00E75AA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52483A70238B8EFD00E75AA8 /* AppDelegate.swift */; };
 		52483A73238B8EFD00E75AA8 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52483A72238B8EFD00E75AA8 /* HomeVC.swift */; };
 		52483A75238B8EFD00E75AA8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52483A74238B8EFD00E75AA8 /* SecondViewController.swift */; };
 		52483A78238B8EFD00E75AA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52483A76238B8EFD00E75AA8 /* Main.storyboard */; };
 		52483A7A238B8EFE00E75AA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52483A79238B8EFE00E75AA8 /* Assets.xcassets */; };
 		52483A7D238B8EFE00E75AA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52483A7B238B8EFE00E75AA8 /* LaunchScreen.storyboard */; };
+		525ACBB7238F91C200F747B1 /* RoundedBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525ACBB6238F91C200F747B1 /* RoundedBtn.swift */; };
+		525ACBB9238F94D400F747B1 /* CustomerTrackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525ACBB8238F94D400F747B1 /* CustomerTrackVC.swift */; };
 		5292E174238BAEEA00F29BAB /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292E173238BAEEA00F29BAB /* UIViewControllerExt.swift */; };
 		5292E176238BAF5300F29BAB /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292E175238BAF5300F29BAB /* Reach.swift */; };
 		5292E178238BAF9900F29BAB /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292E177238BAF9900F29BAB /* UIViewExt.swift */; };
@@ -24,6 +33,13 @@
 /* Begin PBXFileReference section */
 		1DC4135F6CC83A4BB5C56E30 /* Pods-MiCharger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiCharger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiCharger/Pods-MiCharger.debug.xcconfig"; sourceTree = "<group>"; };
 		386479F3F65E449E0CAA9B6A /* Pods_MiCharger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiCharger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		522A2F0523A73F15007518EA /* HeadInstructionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadInstructionLabel.swift; sourceTree = "<group>"; };
+		522A2F0723A7453E007518EA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		522A2F0923A7696E007518EA /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		522A2F0B23A76AEC007518EA /* AppInitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitModel.swift; sourceTree = "<group>"; };
+		522A2F0D23A79960007518EA /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
+		522A2F0F23A7A3DD007518EA /* TextFiledExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFiledExt.swift; sourceTree = "<group>"; };
+		522A2F1123A7A3E5007518EA /* UiImageViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiImageViewExt.swift; sourceTree = "<group>"; };
 		52483A6D238B8EFD00E75AA8 /* MiCharger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiCharger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52483A70238B8EFD00E75AA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52483A72238B8EFD00E75AA8 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -32,6 +48,8 @@
 		52483A79238B8EFE00E75AA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52483A7C238B8EFE00E75AA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52483A7E238B8EFE00E75AA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		525ACBB6238F91C200F747B1 /* RoundedBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBtn.swift; sourceTree = "<group>"; };
+		525ACBB8238F94D400F747B1 /* CustomerTrackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTrackVC.swift; sourceTree = "<group>"; };
 		5292E173238BAEEA00F29BAB /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		5292E175238BAF5300F29BAB /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		5292E177238BAF9900F29BAB /* UIViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
@@ -98,6 +116,7 @@
 		52483A84238B96A600E75AA8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				522A2F0D23A79960007518EA /* SweetAlert.swift */,
 				5292E175238BAF5300F29BAB /* Reach.swift */,
 				5292E17B238BFA7A00F29BAB /* Constants.swift */,
 			);
@@ -108,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				5292E179238BB28F00F29BAB /* LocationService.swift */,
+				522A2F0923A7696E007518EA /* WebService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -115,6 +135,8 @@
 		52483A86238B96DE00E75AA8 /* Extention */ = {
 			isa = PBXGroup;
 			children = (
+				522A2F1123A7A3E5007518EA /* UiImageViewExt.swift */,
+				522A2F0F23A7A3DD007518EA /* TextFiledExt.swift */,
 				5292E177238BAF9900F29BAB /* UIViewExt.swift */,
 				5292E173238BAEEA00F29BAB /* UIViewControllerExt.swift */,
 			);
@@ -126,6 +148,8 @@
 			children = (
 				52483A72238B8EFD00E75AA8 /* HomeVC.swift */,
 				52483A74238B8EFD00E75AA8 /* SecondViewController.swift */,
+				525ACBB8238F94D400F747B1 /* CustomerTrackVC.swift */,
+				522A2F0723A7453E007518EA /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -133,6 +157,7 @@
 		52483A88238B96F700E75AA8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				525ACBB5238F917D00F747B1 /* Updated Design */,
 				52483A7B238B8EFE00E75AA8 /* LaunchScreen.storyboard */,
 				52483A79238B8EFE00E75AA8 /* Assets.xcassets */,
 			);
@@ -142,8 +167,18 @@
 		52483A89238B96FF00E75AA8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				522A2F0B23A76AEC007518EA /* AppInitModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		525ACBB5238F917D00F747B1 /* Updated Design */ = {
+			isa = PBXGroup;
+			children = (
+				525ACBB6238F91C200F747B1 /* RoundedBtn.swift */,
+				522A2F0523A73F15007518EA /* HeadInstructionLabel.swift */,
+			);
+			path = "Updated Design";
 			sourceTree = "<group>";
 		};
 		C9AB143E0C43194815DED69D /* Frameworks */ = {
@@ -295,14 +330,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522A2F0A23A7696E007518EA /* WebService.swift in Sources */,
+				522A2F0C23A76AEC007518EA /* AppInitModel.swift in Sources */,
+				522A2F1223A7A3E5007518EA /* UiImageViewExt.swift in Sources */,
 				5292E17A238BB28F00F29BAB /* LocationService.swift in Sources */,
+				525ACBB7238F91C200F747B1 /* RoundedBtn.swift in Sources */,
+				522A2F0823A7453E007518EA /* LoginVC.swift in Sources */,
 				5292E178238BAF9900F29BAB /* UIViewExt.swift in Sources */,
 				52483A75238B8EFD00E75AA8 /* SecondViewController.swift in Sources */,
+				522A2F1023A7A3DD007518EA /* TextFiledExt.swift in Sources */,
 				52483A71238B8EFD00E75AA8 /* AppDelegate.swift in Sources */,
 				5292E176238BAF5300F29BAB /* Reach.swift in Sources */,
 				5292E174238BAEEA00F29BAB /* UIViewControllerExt.swift in Sources */,
 				52483A73238B8EFD00E75AA8 /* HomeVC.swift in Sources */,
+				522A2F0E23A79961007518EA /* SweetAlert.swift in Sources */,
+				525ACBB9238F94D400F747B1 /* CustomerTrackVC.swift in Sources */,
 				5292E17C238BFA7A00F29BAB /* Constants.swift in Sources */,
+				522A2F0623A73F15007518EA /* HeadInstructionLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5XN7T3JG5Q;
+				DEVELOPMENT_TEAM = H8RH4J3RY4;
 				INFOPLIST_FILE = MiCharger/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5XN7T3JG5Q;
+				DEVELOPMENT_TEAM = H8RH4J3RY4;
 				INFOPLIST_FILE = MiCharger/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (

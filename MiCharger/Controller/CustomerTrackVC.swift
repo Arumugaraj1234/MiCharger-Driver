@@ -1,8 +1,8 @@
 //
-//  HomeVC.swift
+//  CustomerTrackVC.swift
 //  MiCharger
 //
-//  Created by MacBook Pro on 2019-11-25.
+//  Created by MacBook Pro on 2019-11-28.
 //  Copyright © 2019 Peach. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-class HomeVC: UIViewController {
+class CustomerTrackVC: UIViewController {
     
     //MARK: OUTLETS
     @IBOutlet weak var mapView: GMSMapView!
@@ -18,7 +18,6 @@ class HomeVC: UIViewController {
     //MARK: VARIABLES
     let locationService = LocationService.shared
     let locationManager = CLLocationManager()
-    var timer: Timer?
     
     var originMaker: GMSMarker?
     var destinationMarker: GMSMarker?
@@ -30,21 +29,15 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         locationManager.delegate = self
         mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
-        //showCustomerLocation()
-        
+        showCustomerLocation()
     }
     
-    @IBAction func onAcceptBtnTapped(sender: UIButton) {
-        performSegue(withIdentifier: HOMEVC_TO_CUSTOMER_TRACKVC, sender: self)
+    @IBAction func onBackBtnPressed(sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func onDeclineBtnPressed(sender: UIButton) {
-        
-    }
-        
     func showCustomerLocation() {
-        //let myLocation = CLLocationCoordinate2DMake(self.locationService.myCurrentLatitude, self.locationService.myCurrentLongitude)
-        let myLocation = CLLocationCoordinate2DMake(13.267966, 80.266904)
+        let myLocation = CLLocationCoordinate2DMake(self.locationService.myCurrentLatitude, self.locationService.myCurrentLongitude)
         let chargerLocation = CLLocationCoordinate2DMake(13.272733, 80.265059)
         LocationService.shared.getDirectionsFromgeoCode(originLat: myLocation.latitude, originLon: myLocation.longitude, destinalat: chargerLocation.latitude, destLon: chargerLocation.longitude, wayPoints: [], travelMode: "driving" as AnyObject) { (success) in
             if success {
@@ -64,18 +57,18 @@ class HomeVC: UIViewController {
         
         originMaker = GMSMarker(position: myLocatiion)
         originMaker?.map = self.mapView
-        originMaker?.icon = UIImage(named: "trackIcon")
+        originMaker?.icon = UIImage(named: "chargerIcon")
         //originMaker?.title = AuthService.instance.originAddress
-        originMaker?.snippet = "User"
+        originMaker?.snippet = "Charger"
         self.mapView.selectedMarker = originMaker
         
         //let chargerLocation = CLLocationCoordinate2DMake(13.078519, 80.261002)
         let chargerLocation = chargerCoOrdinates
         destinationMarker = GMSMarker(position: chargerLocation)
         destinationMarker?.map = self.mapView
-        destinationMarker?.icon = UIImage(named: "chargerIcon")
+        destinationMarker?.icon = UIImage(named: "trackIcon")
         //destinationMarker?.title = AuthService.instance.destinationAddress
-        destinationMarker?.snippet = "John"
+        destinationMarker?.snippet = "User"
         self.mapView.selectedMarker = destinationMarker
         
         
@@ -107,26 +100,21 @@ class HomeVC: UIViewController {
         mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 60.0))
         //self.animateFromToContainerView(shoulShow: false)
     }
-    
-
-//    @objc func updateLocation() {
-//        makeToast(message: "Lat: \(LocationService.shared.myCurrentLatitude), Lon: \(LocationService.shared.myCurrentLongitude), index: \(LocationService.shared.index)", time: 1.0, position: .center, textColor: .black)
-//    }
 
 }
 
-extension HomeVC: CLLocationManagerDelegate {
+extension CustomerTrackVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == CLAuthorizationStatus.authorizedWhenInUse {
             mapView.isMyLocationEnabled = true
         }
     }
-
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         let myLocation: CLLocation = change![NSKeyValueChangeKey.newKey] as! CLLocation
-        mapView.camera = GMSCameraPosition.camera(withTarget: myLocation.coordinate, zoom: 15.0)
+        //mapView.camera = GMSCameraPosition.camera(withTarget: myLocation.coordinate, zoom: 15.0)
         mapView.settings.compassButton = true
-
+        
     }
 }
 
