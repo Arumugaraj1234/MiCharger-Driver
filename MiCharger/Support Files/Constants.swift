@@ -18,6 +18,7 @@ let GOOGLE_URL_FOR_ADDRESS = "https://maps.googleapis.com/maps/api/geocode/json?
 //MARK: SEGUE IDENTIFIER CONSTANTS
 let HOMEVC_TO_CUSTOMER_TRACKVC = "HomeVcToCustomerTrackVc"
 let LOGINVC_TO_HOMEVC = "loginVcToHomeVc"
+let TRACK_CUSTOMERVC_TO_CHARGER_READINGVC = "trackCustomerVcToChargerReadingVc"
 
 //MARK: HEADER
 let HEADER = ["Content-Type" : "application/Json"]
@@ -40,3 +41,10 @@ let BASE_URL = "http://101.53.153.54:80/ElectricCharger/WebService/api/Charger/"
 let URL_TO_GET_APP_INIT_DETAILS = BASE_URL + "AppInit"
 let URL_TO_LOGIN = BASE_URL + "Login"
 let URL_TO_FORGET_PASSWORD = BASE_URL + "ForgotLogin"
+let URL_TO_UPDATE_CHARGER_LOCATION = BASE_URL + "UpdateLocation"
+let URL_TO_CHECK_ANY_ORDER_AVAILABLE = BASE_URL + "FindBooking"
+let URL_TO_AUTO_REJECT_ORDER = BASE_URL + "AutoReject"
+let URL_TO_ACCEPT_OR_DECLINE_ORDER = BASE_URL + "AcceptOrDecline"
+let URL_TO_VERIFY_OTP_FOR_RECHARGE = BASE_URL + "VerifyOtp"
+let URL_TO_START_CHARGING = BASE_URL + "StartCharging"
+let URL_TO_COMPLETE_CHARGING = BASE_URL + "CompleteCharger"

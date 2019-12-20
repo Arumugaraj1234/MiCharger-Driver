@@ -34,10 +34,12 @@ class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        shouldPresentLoadingViewWithText(true, "")
         hideKeyboardWhenTappedAround()
         forgetPasswordView.isHidden = true
-        getAppInitDetails()
         setupAppInitialLoginView()
+        getAppInitDetails()
+        
     }
     
     @IBAction func onLaterBtnPressed(sender: RoundedBtn) {
@@ -115,7 +117,6 @@ class LoginVC: UIViewController {
     }
     
     func getAppInitDetails() {
-        shouldPresentLoadingViewWithText(true, "")
         if checkInternetAvailablity() {
             webService.getAppInitDetails { (status, msg, data) in
                 if status == 1 {
@@ -143,10 +144,10 @@ class LoginVC: UIViewController {
                     }
                     else {
                         if self.webService.isUserLoggedIn {
-                            self.shouldPresentLoadingViewWithText(false, "")
                            // Skip To Next Screen
                             print("Skip to home screen")
                             self.performSegue(withIdentifier: LOGINVC_TO_HOMEVC, sender: self)
+                            self.shouldPresentLoadingViewWithText(false, "")
                         }
                         else {
                             self.loginView.isHidden = false
@@ -236,6 +237,7 @@ class LoginVC: UIViewController {
                     if status == 1 {
                         //Skip to home screen
                         self.stopAnimating()
+                        LocationService.shared.updateLocationWithTimer()
                         self.performSegue(withIdentifier: LOGINVC_TO_HOMEVC, sender: self)
                     }
                     else {

@@ -23,11 +23,16 @@
 		52483A7D238B8EFE00E75AA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52483A7B238B8EFE00E75AA8 /* LaunchScreen.storyboard */; };
 		525ACBB7238F91C200F747B1 /* RoundedBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525ACBB6238F91C200F747B1 /* RoundedBtn.swift */; };
 		525ACBB9238F94D400F747B1 /* CustomerTrackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525ACBB8238F94D400F747B1 /* CustomerTrackVC.swift */; };
+		5263C4A723ACA35D009988CA /* VehicleFareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5263C4A623ACA35D009988CA /* VehicleFareModel.swift */; };
+		5263C4A923ACDCF7009988CA /* CompleteOrderFareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5263C4A823ACDCF7009988CA /* CompleteOrderFareModel.swift */; };
 		5292E174238BAEEA00F29BAB /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292E173238BAEEA00F29BAB /* UIViewControllerExt.swift */; };
 		5292E176238BAF5300F29BAB /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292E175238BAF5300F29BAB /* Reach.swift */; };
 		5292E178238BAF9900F29BAB /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292E177238BAF9900F29BAB /* UIViewExt.swift */; };
 		5292E17A238BB28F00F29BAB /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292E179238BB28F00F29BAB /* LocationService.swift */; };
 		5292E17C238BFA7A00F29BAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292E17B238BFA7A00F29BAB /* Constants.swift */; };
+		52A1028A23A89AA700B91D49 /* OrderReceivedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A1028923A89AA700B91D49 /* OrderReceivedModel.swift */; };
+		52F64D6723AB66890054A6CC /* AcceptedOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F64D6623AB66890054A6CC /* AcceptedOrderModel.swift */; };
+		52F64D6923AB92F40054A6CC /* ChargerReadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F64D6823AB92F40054A6CC /* ChargerReadingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,11 +55,16 @@
 		52483A7E238B8EFE00E75AA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		525ACBB6238F91C200F747B1 /* RoundedBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBtn.swift; sourceTree = "<group>"; };
 		525ACBB8238F94D400F747B1 /* CustomerTrackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTrackVC.swift; sourceTree = "<group>"; };
+		5263C4A623ACA35D009988CA /* VehicleFareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleFareModel.swift; sourceTree = "<group>"; };
+		5263C4A823ACDCF7009988CA /* CompleteOrderFareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteOrderFareModel.swift; sourceTree = "<group>"; };
 		5292E173238BAEEA00F29BAB /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		5292E175238BAF5300F29BAB /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		5292E177238BAF9900F29BAB /* UIViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		5292E179238BB28F00F29BAB /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		5292E17B238BFA7A00F29BAB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		52A1028923A89AA700B91D49 /* OrderReceivedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderReceivedModel.swift; sourceTree = "<group>"; };
+		52F64D6623AB66890054A6CC /* AcceptedOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedOrderModel.swift; sourceTree = "<group>"; };
+		52F64D6823AB92F40054A6CC /* ChargerReadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerReadingVC.swift; sourceTree = "<group>"; };
 		7398CB3E22B404C0BF800966 /* Pods-MiCharger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiCharger.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiCharger/Pods-MiCharger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,10 +156,11 @@
 		52483A87238B96EE00E75AA8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				52483A72238B8EFD00E75AA8 /* HomeVC.swift */,
-				52483A74238B8EFD00E75AA8 /* SecondViewController.swift */,
-				525ACBB8238F94D400F747B1 /* CustomerTrackVC.swift */,
 				522A2F0723A7453E007518EA /* LoginVC.swift */,
+				52483A72238B8EFD00E75AA8 /* HomeVC.swift */,
+				525ACBB8238F94D400F747B1 /* CustomerTrackVC.swift */,
+				52F64D6823AB92F40054A6CC /* ChargerReadingVC.swift */,
+				52483A74238B8EFD00E75AA8 /* SecondViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +179,10 @@
 			isa = PBXGroup;
 			children = (
 				522A2F0B23A76AEC007518EA /* AppInitModel.swift */,
+				52A1028923A89AA700B91D49 /* OrderReceivedModel.swift */,
+				52F64D6623AB66890054A6CC /* AcceptedOrderModel.swift */,
+				5263C4A623ACA35D009988CA /* VehicleFareModel.swift */,
+				5263C4A823ACDCF7009988CA /* CompleteOrderFareModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				522A2F0A23A7696E007518EA /* WebService.swift in Sources */,
+				5263C4A723ACA35D009988CA /* VehicleFareModel.swift in Sources */,
 				522A2F0C23A76AEC007518EA /* AppInitModel.swift in Sources */,
 				522A2F1223A7A3E5007518EA /* UiImageViewExt.swift in Sources */,
 				5292E17A238BB28F00F29BAB /* LocationService.swift in Sources */,
@@ -338,6 +354,7 @@
 				522A2F0823A7453E007518EA /* LoginVC.swift in Sources */,
 				5292E178238BAF9900F29BAB /* UIViewExt.swift in Sources */,
 				52483A75238B8EFD00E75AA8 /* SecondViewController.swift in Sources */,
+				52F64D6923AB92F40054A6CC /* ChargerReadingVC.swift in Sources */,
 				522A2F1023A7A3DD007518EA /* TextFiledExt.swift in Sources */,
 				52483A71238B8EFD00E75AA8 /* AppDelegate.swift in Sources */,
 				5292E176238BAF5300F29BAB /* Reach.swift in Sources */,
@@ -345,7 +362,10 @@
 				52483A73238B8EFD00E75AA8 /* HomeVC.swift in Sources */,
 				522A2F0E23A79961007518EA /* SweetAlert.swift in Sources */,
 				525ACBB9238F94D400F747B1 /* CustomerTrackVC.swift in Sources */,
+				5263C4A923ACDCF7009988CA /* CompleteOrderFareModel.swift in Sources */,
 				5292E17C238BFA7A00F29BAB /* Constants.swift in Sources */,
+				52F64D6723AB66890054A6CC /* AcceptedOrderModel.swift in Sources */,
+				52A1028A23A89AA700B91D49 /* OrderReceivedModel.swift in Sources */,
 				522A2F0623A73F15007518EA /* HeadInstructionLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,8 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import Alamofire
+import SwiftyJSON
 
 class LocationService: NSObject {
     
@@ -16,12 +18,13 @@ class LocationService: NSObject {
     static let shared = LocationService()
     
     let locationManager = CLLocationManager()
+    let webService = WebService.shared
     //Variables for Route map
     var selectedRoute: [String: AnyObject]!
     var overViewPolyLine: [String: AnyObject]!
     var myCurrentLatitude: CLLocationDegrees = 0
     var myCurrentLongitude: CLLocationDegrees = 0
-    var index = 0
+    var timer = Timer()
     
     func setGoogleApiKeys() {
         GMSServices.provideAPIKey("AIzaSyDUgw31MfDV88qEnxUqInF8VVElUAjqgpg")
@@ -51,7 +54,7 @@ class LocationService: NSObject {
         }
         directionURLString = directionURLString.addingPercentEncoding(withAllowedCharacters:.urlQueryAllowed)!
         let directionURL = NSURL(string: directionURLString)
-        let request = NSMutableURLRequest(url:directionURL as URL!)
+        let request = NSMutableURLRequest(url:directionURL! as URL)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
@@ -69,14 +72,11 @@ class LocationService: NSObject {
                     if status == "OK" {
                         let result = resultJson!["routes"] as! [[String: AnyObject]]
                         self.selectedRoute = result[0]
-                        self.overViewPolyLine = self.selectedRoute["overview_polyline"] as! [String: AnyObject]
+                        self.overViewPolyLine = (self.selectedRoute["overview_polyline"] as! [String: AnyObject])
                         completion(true)
                     } else {
                         completion(false)
                     }
-                }
-                catch{
-                    completion(false)
                 }
             }
             
@@ -84,12 +84,37 @@ class LocationService: NSObject {
         task.resume()
     }
     
+    @objc
+    func updateChargerLocation() {
+        let params: [String : Any] = [
+            "ChargerId": webService.userId,
+            "Latitude": myCurrentLatitude,
+            "Longitude": myCurrentLongitude
+        ]
+        
+        Alamofire.request(URL_TO_UPDATE_CHARGER_LOCATION, method: .post, parameters: params, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else {return}
+                let json = JSON(data)
+                let responseCode = json["ResponseCode"].intValue
+                let responseMessage = json["ResponseMessage"].stringValue
+                print("Response Code: \(responseCode), Message: \(responseMessage), Latitude: \(self.myCurrentLatitude), Longitude: \(self.myCurrentLongitude)")
+            }
+            else {
+                debugPrint(response.error as Any)
+            }
+        }
+    }
+    
+    func updateLocationWithTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(updateChargerLocation), userInfo: nil, repeats: true)
+    }
+    
 }
 
 extension LocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Get Locations")
-        index = index + 1
         let defaultLocation = CLLocation(latitude: 0.0, longitude: 0.0)
         let location: CLLocation = locations.last ?? defaultLocation
         myCurrentLatitude = location.coordinate.latitude

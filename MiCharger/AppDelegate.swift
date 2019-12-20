@@ -13,12 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let locationService = LocationService.shared
+    let webService = WebService.shared
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         locationService.setGoogleApiKeys()
         locationService.authorize()
-        WebService.shared.isUserLoggedIn = false
+        if webService.isUserLoggedIn {
+            locationService.updateLocationWithTimer()
+        }
         return true
     }
 
