@@ -64,6 +64,9 @@ class HomeVC: UIViewController {
             webService.acceptOrDeclineOrder(orderId: availableOrder.orderId, userId: webService.userId, type: 1) { (status, message, data) in
                 if status == 1 {
                     self.stopAnimating()
+                    self.timerForBalanceSec?.invalidate()
+                    self.timerForBalanceSec = nil
+                    
                     guard let acceptOrder = data else {return}
                     
                     self.webService.availableOrderForAcceptOrDecline = nil
@@ -91,6 +94,9 @@ class HomeVC: UIViewController {
             webService.acceptOrDeclineOrder(orderId: availableOrder.orderId, userId: webService.userId, type: 2) { (status, message, data) in
                 if status == 1 {
                     self.stopAnimating()
+                    self.timerForBalanceSec?.invalidate()
+                    self.timerForBalanceSec = nil
+                    
                     self.webService.availableOrderForAcceptOrDecline = nil
                     self.orderAcceptView.isHidden = true
                     self.checkForAnyOrderWithTimer()

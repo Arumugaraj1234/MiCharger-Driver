@@ -134,9 +134,11 @@ class LoginVC: UIViewController {
                     if appVersionInMyMachine! != appInit.newVersion {
                         isApplicationToUpdate = true
                     }
+                    
                     if isApplicationToUpdate && appInit.flag != 0 {
                         self.loginView.isHidden = true
-                        self.instructionLbl.text = appInit.instruction
+                        //self.instructionLbl.text = appInit.instruction
+                        self.instructionLbl.text = "A new version got released in Appstore. Please update your application for better experience"
                         if appInit.flag == 2 {
                             self.laterBtn.isHidden = true
                         }

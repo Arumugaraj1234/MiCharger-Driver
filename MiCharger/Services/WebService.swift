@@ -322,11 +322,114 @@ class WebService: NSObject {
             }
             else {
                 debugPrint(response.error as Any)
-                completion(-2, response.error.debugDescription, nil)
+                completion(-2, response.error?.localizedDescription ?? "", nil)
             }
         }
-        
     }
+    
+    func getBookingHistory(orderId: Int, completion: @escaping (_ status: Int, _ message: String, _ data: [HistoryOrderModel]?) -> Void) {
+        let params = [
+            "ChargerId": orderId
+        ]
+        
+        Alamofire.request(URL_TO_GET_BOOKING_HISTORY, method: .post, parameters: params, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else {return}
+                let json = JSON(data)
+                let responseCode = json["ResponseCode"].intValue
+                let responseMessage = json["ResponseMessage"].stringValue
+                if responseCode == 1 {
+                    var history = [HistoryOrderModel]()
+                    let responseData = json["ResponseData"].arrayValue
+                    for order in responseData {
+                        let orderId = order["BookingId"].intValue
+                        let vehicleId = order["VehileId"].intValue
+                        let vehicleName = order["VehileName"].stringValue
+                        let vehicleImageLink = order["VehileImage"].stringValue
+                        let customerId = order["CustomerId"].intValue
+                        let customerName = order["CustomerName"].stringValue
+                        let customerContactNo = order["CustomerNumber"].stringValue
+                        let fare = order["Fare"].doubleValue
+                        let status = order["Status"].stringValue
+                        let bookedDate = order["Booked"].stringValue
+                        let paymentStatus = order["PaymentStatus"].stringValue
+                        
+                        let historyModel = HistoryOrderModel(orderId: orderId, vehicleId: vehicleId, vehicleName: vehicleName, vehicleImageLink: vehicleImageLink, customerId: customerId, customerName: customerName, customerContactNo: customerContactNo, fare: fare, orderStatus: status, orderDate: bookedDate, paymentStatus: paymentStatus)
+                        history.append(historyModel)
+                    }
+                    completion(responseCode, responseMessage, history)
+                }
+                else {
+                    completion(responseCode, responseMessage, nil)
+                }
+            }
+            else {
+                debugPrint(response.error as Any)
+                completion(-2, response.error?.localizedDescription ?? "", nil)
+            }
+        }
+    }
+    
+    
+    func updateProfile(userId: Int, firstName: String, lastName: String, email: String, phone: String, completion: @escaping (_ status: Int, _ message: String) -> Void) {
+        let params: [String: Any] = [
+            "ChargerId": userId,
+            "FirstName": firstName,
+            "LastName": lastName,
+            "Email": email,
+            "Phone": phone,
+            "Password": ""
+        ]
+        
+        Alamofire.request(URL_TO_UPDATE_PROFILE, method: .post, parameters: params, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else {return}
+                let json = JSON(data)
+                let responseCode = json["ResponseCode"].intValue
+                let responseMessage = json["ResponseMessage"].stringValue
+                if responseCode == 1 {
+                    let responseData = json["ResponseData"]
+                    let fName = responseData["FirstName"].stringValue
+                    let lName = responseData["LastName"].stringValue
+                    let emailAddress = responseData["Email"].stringValue
+                    let mobile = responseData["Phone"].stringValue
+                    
+                    var userDetails = [String: String]()
+                    userDetails[FIRST_NAME] = fName
+                    userDetails[LAST_NAME] = lName
+                    userDetails[EMAIL] = emailAddress
+                    userDetails[MOBILE_NO] = mobile
+                    self.userDetails = userDetails
+                    
+                    completion(responseCode, responseMessage)
+                }
+                else {
+                    completion(responseCode, responseMessage)
+                }
+            }
+            else {
+                debugPrint(response.error as Any)
+                completion(-2, response.error?.localizedDescription ?? "")
+            }
+        }
+    }
+    
+    func logOut(userId: Int, completion: @escaping (_ status: Int, _ message: String) -> Void) {
+        let params = [
+            "ChargerId": userId
+        ]
+        
+        Alamofire.request(URL_TO_LOGOUT, method: .post, parameters: params, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                
+            }
+            else {
+                debugPrint(response.error as Any)
+                completion(-2, response.error?.localizedDescription ?? "")
+            }
+        }
+    }
+    
     
     
 }

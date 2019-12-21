@@ -80,7 +80,7 @@ class CustomerTrackVC: UIViewController {
         let otp = otpTF.text!
         var isValidOtp = true
         
-        if otp.count != 4 {
+        if otp.count != 6 {
             isValidOtp = false
             otpTF.error.isShowing = true
             return
@@ -91,6 +91,8 @@ class CustomerTrackVC: UIViewController {
                 startAnimate(with: "")
                 webService.verifyOtpForCharge(orderId: acceptedOrder.orderId, otp: otp, chargerId: webService.userId) { (status, message, data) in
                     if status == 1 {
+                        self.timer?.invalidate()
+                        self.timer = nil
                         guard let fareModel = data else {return}
                         self.vehicleFare = fareModel
                         self.stopAnimating()

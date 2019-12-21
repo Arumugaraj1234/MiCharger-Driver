@@ -63,6 +63,7 @@ class ChargerReadingVC: UIViewController {
                     self.startTimer()
                 }
                 else {
+                    self.stopAnimating()
                     self.setBtnStatus(status: .initial)
                 }
             }
@@ -74,21 +75,27 @@ class ChargerReadingVC: UIViewController {
     
     @IBAction func onpauseChargeBtnPressed(sender: UIButton) {
         setBtnStatus(status: .pause)
-        startChageBtn.isHidden = false
-        pauseCompleteBtnStackView.isHidden = false
-        pauseChargeBtn.isHidden = true
+//        startChageBtn.isHidden = false
+//        pauseCompleteBtnStackView.isHidden = false
+//        pauseChargeBtn.isHidden = true
         stopTimer()
     }
     
     @IBAction func onStopBtnPressed(sender: UIButton) {
+        stopTimer()
         if checkInternetAvailablity() {
             startAnimate(with: "")
             webService.completeCharging(orderId: acceptedOrder.orderId, userId: webService.userId, totalSeconds: self.totalSeconds) { (status, message, data) in
                 if status == 1 {
+                    self.stopAnimating()
                     self.setBtnStatus(status: .stop)
                     guard let fareModel = data else {return}
                     print("IOS Fare: \(self.totalFare), Server Fare: \(fareModel.totalFare)")
                     self.webService.acceptedOrder = nil
+                }
+                else {
+                    self.stopAnimating()
+                    _ = SweetAlert().showAlert("Error", subTitle: message, style: .none)
                 }
             }
         }
@@ -98,7 +105,9 @@ class ChargerReadingVC: UIViewController {
     }
     
     @IBAction func onCompleteChargeBtnPressed(sender: UIButton) {
-
+        let main:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let historyVC = main.instantiateViewController(withIdentifier: "BookingHistoryVC") as! BookingHistoryVC
+        present(historyVC, animated: true, completion: nil)
     }
     
     @IBAction func onBackBtnPressed(sender: UIButton) {
@@ -106,9 +115,9 @@ class ChargerReadingVC: UIViewController {
     }
     
     func startTimer() {
-        startChageBtn.isHidden = true
-        pauseChargeBtn.isHidden = false
-        pauseCompleteBtnStackView.isHidden = false
+//        startChageBtn.isHidden = true
+//        pauseChargeBtn.isHidden = false
+//        pauseCompleteBtnStackView.isHidden = false
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimerDetails), userInfo: nil, repeats: true)
     }
     

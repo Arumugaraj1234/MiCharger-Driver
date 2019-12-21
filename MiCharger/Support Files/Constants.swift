@@ -19,6 +19,7 @@ let GOOGLE_URL_FOR_ADDRESS = "https://maps.googleapis.com/maps/api/geocode/json?
 let HOMEVC_TO_CUSTOMER_TRACKVC = "HomeVcToCustomerTrackVc"
 let LOGINVC_TO_HOMEVC = "loginVcToHomeVc"
 let TRACK_CUSTOMERVC_TO_CHARGER_READINGVC = "trackCustomerVcToChargerReadingVc"
+let PROFILEVC_TO_UPDATE_PROFILEVC = "profileVcToEditProfileVc"
 
 //MARK: HEADER
 let HEADER = ["Content-Type" : "application/Json"]
@@ -48,3 +49,6 @@ let URL_TO_ACCEPT_OR_DECLINE_ORDER = BASE_URL + "AcceptOrDecline"
 let URL_TO_VERIFY_OTP_FOR_RECHARGE = BASE_URL + "VerifyOtp"
 let URL_TO_START_CHARGING = BASE_URL + "StartCharging"
 let URL_TO_COMPLETE_CHARGING = BASE_URL + "CompleteCharger"
+let URL_TO_GET_BOOKING_HISTORY = BASE_URL + "MyBooking"
+let URL_TO_UPDATE_PROFILE = BASE_URL + "UpdateProfile"
+let URL_TO_LOGOUT = BASE_URL + "Logout"
