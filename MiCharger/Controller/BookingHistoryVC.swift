@@ -49,6 +49,10 @@ class BookingHistoryVC: UIViewController {
             _ = SweetAlert().showAlert("Network Error", subTitle: NETWORK_ERROR_MSG, style: .none)
         }
     }
+    
+    func stopTimerToCheckAnyOrder() {
+        
+    }
 
 }
 

@@ -28,6 +28,7 @@ class LoginVC: UIViewController {
     
     //MARK: CONSTANTS
     let webService = WebService.shared
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //MARK: VARIABLES
     var isValidToLogin = false
@@ -148,8 +149,10 @@ class LoginVC: UIViewController {
                         if self.webService.isUserLoggedIn {
                            // Skip To Next Screen
                             print("Skip to home screen")
-                            self.performSegue(withIdentifier: LOGINVC_TO_HOMEVC, sender: self)
+                            self.loginView.isHidden = true
+//                            self.performSegue(withIdentifier: LOGINVC_TO_HOMEVC, sender: self)
                             self.shouldPresentLoadingViewWithText(false, "")
+                            self.appDelegate.skipToHomeScreen()
                         }
                         else {
                             self.loginView.isHidden = false

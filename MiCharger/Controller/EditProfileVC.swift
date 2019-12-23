@@ -163,5 +163,23 @@ class EditProfileVC: UIViewController {
         
     }
 
+}
 
+extension EditProfileVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField.tag {
+        case 1:
+            _ = firstNameTF.resignFirstResponder()
+            _ = lastNameTF.becomeFirstResponder()
+        case 2:
+            _ = lastNameTF.resignFirstResponder()
+            _ = emailTF.becomeFirstResponder()
+        case 3:
+            _ = emailTF.resignFirstResponder()
+            _ = phoneTF.becomeFirstResponder()
+        default:
+            return true
+        }
+        return true
+    }
 }

@@ -107,7 +107,9 @@ class LocationService: NSObject {
     }
     
     func updateLocationWithTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(updateChargerLocation), userInfo: nil, repeats: true)
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(updateChargerLocation), userInfo: nil, repeats: true)
+        }
     }
     
 }

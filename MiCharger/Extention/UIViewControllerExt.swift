@@ -77,7 +77,7 @@ extension UIViewController: NVActivityIndicatorViewable {
             for subview in view.subviews {
                 if subview.tag == 99 {
                     UIView.animate(withDuration: 0.2, animations: {
-                        subview.alpha = 0.0
+                        subview.alpha = 1.0
                     }, completion: { (finished) in
                         subview.removeFromSuperview()
                     })

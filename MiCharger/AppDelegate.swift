@@ -25,7 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    
+    func skipToHomeScreen() {
+        let sb = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc = sb.instantiateViewController(withIdentifier: "homeTabBarController") as! UITabBarController
+        
+        vc.modalTransitionStyle = .crossDissolve
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+    }
 
 
 }

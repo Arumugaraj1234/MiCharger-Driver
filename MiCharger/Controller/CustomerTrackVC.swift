@@ -11,6 +11,10 @@ import GoogleMaps
 import GooglePlaces
 import KOControls
 
+protocol BackFromTrackDelegate {
+    func backBtnPressedInTrackVc()
+}
+
 class CustomerTrackVC: UIViewController {
     
     //MARK: OUTLETS
@@ -36,6 +40,9 @@ class CustomerTrackVC: UIViewController {
     var timer: Timer?
     var acceptedOrder: AcceptedOrderModel!
     var vehicleFare: VehicleFareModel!
+    var delegate: BackFromTrackDelegate?
+    
+    var isMapLoadedForFirstTime = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +52,7 @@ class CustomerTrackVC: UIViewController {
         otpTF.addHideinputAccessoryView()
         otpTF.errorInfo.description = "Invalid OTP"
         otpTF.validation.add(validator: KOFunctionTextValidator(function: { otp -> Bool in
-            return otp.count == 4
+            return otp.count == 6
         }))
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideVerifyOtpView))
         otpVerifyView.addGestureRecognizer(tap)
@@ -60,13 +67,16 @@ class CustomerTrackVC: UIViewController {
         // Set Map View
         locationManager.delegate = self
         mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
-        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showCustomerLocation), userInfo: nil, repeats: true)
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showCustomerLocation), userInfo: nil, repeats: true)
+        }
         showCustomerLocation()
     }
     
     @IBAction func onBackBtnPressed(sender: UIButton) {
         self.timer?.invalidate()
         self.timer = nil
+        delegate?.backBtnPressedInTrackVc()
         dismiss(animated: true, completion: nil)
     }
     
@@ -173,7 +183,13 @@ class CustomerTrackVC: UIViewController {
         routePolyLine?.strokeWidth = 2.0
         routePolyLine?.map = mapView
         let bounds = GMSCoordinateBounds(path: path)
-        mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 60.0))
+//        if isMapLoadedForFirstTime {
+//            mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 60.0))
+//
+//        }
+        let gmsCameraUpdate = GMSCameraUpdate.fit(bounds, withPadding: 60.0)
+        mapView.moveCamera(gmsCameraUpdate)
+        isMapLoadedForFirstTime = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -20,6 +20,12 @@ class HomeVC: UIViewController {
     @IBOutlet weak var vehicleImage: UIImageView!
     @IBOutlet weak var balanceTimeLbl: UILabel!
     
+    // Order view in service
+    @IBOutlet weak var orderInServiceView: UIView!
+    @IBOutlet weak var oisCustomerNameLbl: UILabel!
+    @IBOutlet weak var oisVehicleImage: UIImageView!
+    @IBOutlet weak var oisVehicleNameLbl: UILabel!
+    
     //MARK: MAP RELATED VARIABLES
     var originMaker: GMSMarker?
     var destinationMarker: GMSMarker?
@@ -39,22 +45,7 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
-        if let availableOrder = webService.availableOrderForAcceptOrDecline {
-            orderAcceptView.isHidden = false
-            customerNameLbl.text = availableOrder.customerName
-            vehicleNameLbl.text = availableOrder.vehicleName
-            vehicleImage.downloadedFrom(link: availableOrder.vehicleImageLink)
-            timerForBalanceSec = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateBalanceTimeLbl), userInfo: nil, repeats: true)
-        }
-        else {
-            orderAcceptView.isHidden = true
-            checkForAnyOrderWithTimer()
-        }
-
-        //showCustomerLocation()
-        
+        setupInitialView()
     }
     
     @IBAction func onAcceptBtnTapped(sender: UIButton) {
@@ -112,8 +103,44 @@ class HomeVC: UIViewController {
         }
     }
     
+    func setupInitialView() {
+        locationManager.delegate = self
+        mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
+        if let availableOrder = webService.availableOrderForAcceptOrDecline {
+            orderAcceptView.isHidden = false
+            orderInServiceView.isHidden = true
+            customerNameLbl.text = availableOrder.customerName
+            vehicleNameLbl.text = availableOrder.vehicleName
+            vehicleImage.downloadedFrom(link: availableOrder.vehicleImageLink)
+            if timerForBalanceSec == nil {
+                timerForBalanceSec = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateBalanceTimeLbl), userInfo: nil, repeats: true)
+            }
+        }
+        else if let acceptedOrder = webService.acceptedOrder {
+            orderAcceptView.isHidden = true
+            orderInServiceView.isHidden = false
+            oisCustomerNameLbl.text = acceptedOrder.customerName
+            oisVehicleImage.downloadedFrom(link: acceptedOrder.vehicleImageLink)
+            oisVehicleNameLbl.text = acceptedOrder.vehicleName
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.performSequeToTrackCustomerScreen))
+            orderInServiceView.addGestureRecognizer(tap)
+        }
+        else {
+            orderAcceptView.isHidden = true
+            orderInServiceView.isHidden = true
+            checkForAnyOrderWithTimer()
+        }
+    }
+    
     func checkForAnyOrderWithTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(checkForAnyOrderAvailable), userInfo: nil, repeats: true)
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(checkForAnyOrderAvailable), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc
+    func performSequeToTrackCustomerScreen() {
+        performSegue(withIdentifier: HOMEVC_TO_CUSTOMER_TRACKVC, sender: self)
     }
     
     @objc
@@ -156,6 +183,13 @@ class HomeVC: UIViewController {
             self.timerForBalanceSec = nil
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == HOMEVC_TO_CUSTOMER_TRACKVC {
+            let trackVc = segue.destination as! CustomerTrackVC
+            trackVc.delegate = self
+        }
+    }
 
 }
 
@@ -171,6 +205,12 @@ extension HomeVC: CLLocationManagerDelegate {
         mapView.camera = GMSCameraPosition.camera(withTarget: myLocation.coordinate, zoom: 15.0)
         mapView.settings.compassButton = true
 
+    }
+}
+
+extension HomeVC: BackFromTrackDelegate {
+    func backBtnPressedInTrackVc() {
+        setupInitialView()
     }
 }
 

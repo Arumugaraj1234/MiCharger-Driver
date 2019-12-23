@@ -25,6 +25,7 @@ class ChargerReadingVC: UIViewController {
     @IBOutlet weak var pauseChargeBtn: UIButton!
     @IBOutlet weak var stopChargeBtn: UIButton!
     @IBOutlet weak var completeBtn: UIButton!
+    @IBOutlet weak var backBtn: UIButton!
     
     //MARK: CONSTANTS
     let webService = WebService.shared
@@ -49,6 +50,7 @@ class ChargerReadingVC: UIViewController {
         }
         //pauseCompleteBtnStackView.isHidden = true
         setBtnStatus(status: .initial)
+        setCompletBtnStatus(enable: false)
         timeLbl.text = "00:00:00"
         amountLbl.text = "$0.00"
     }
@@ -59,6 +61,7 @@ class ChargerReadingVC: UIViewController {
             startAnimate(with: "")
             webService.startCharging(orderId: acceptedOrder.orderId, userId: webService.userId) { (status, message) in
                 if status == 1 {
+                    self.backBtn.isEnabled = false
                     self.stopAnimating()
                     self.startTimer()
                 }
@@ -92,6 +95,7 @@ class ChargerReadingVC: UIViewController {
                     guard let fareModel = data else {return}
                     print("IOS Fare: \(self.totalFare), Server Fare: \(fareModel.totalFare)")
                     self.webService.acceptedOrder = nil
+                    self.setCompletBtnStatus(enable: true)
                 }
                 else {
                     self.stopAnimating()
@@ -118,7 +122,9 @@ class ChargerReadingVC: UIViewController {
 //        startChageBtn.isHidden = true
 //        pauseChargeBtn.isHidden = false
 //        pauseCompleteBtnStackView.isHidden = false
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimerDetails), userInfo: nil, repeats: true)
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimerDetails), userInfo: nil, repeats: true)
+        }
     }
     
     func stopTimer() {
@@ -202,6 +208,16 @@ class ChargerReadingVC: UIViewController {
             setStartBtnStatus(enable: true)
             setPauseBtnStatus(enable: false)
             setStopBtnStatus(enable: false)
+        }
+    }
+    
+    func setCompletBtnStatus(enable: Bool) {
+        completeBtn.isEnabled = enable
+        if enable {
+            completeBtn.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+        else {
+            completeBtn.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         }
     }
 

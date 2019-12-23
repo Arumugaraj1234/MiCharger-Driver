@@ -72,7 +72,7 @@ class WebService: NSObject {
             }
             else {
                 debugPrint(response.error as Any)
-                completion(-2, response.error as! String, nil)
+                completion(-2, response.error?.localizedDescription ?? "", nil)
             }
         }
     }
@@ -113,7 +113,7 @@ class WebService: NSObject {
             }
             else {
                 debugPrint(response.error as Any)
-                completion(-2, response.error as! String)
+                completion(-2, response.error?.localizedDescription ?? "")
             }
         }
     }
@@ -133,7 +133,7 @@ class WebService: NSObject {
             }
             else {
                 debugPrint(response.error as Any)
-                completion(-2, response.error as! String)
+                completion(-2, response.error?.localizedDescription ?? "")
             }
         }
         
@@ -167,7 +167,7 @@ class WebService: NSObject {
             }
             else {
                 debugPrint(response.error as Any)
-                completion(-2, response.error as! String, nil)
+                completion(-2, response.error?.localizedDescription ?? "", nil)
             }
         }
     }
@@ -190,7 +190,7 @@ class WebService: NSObject {
             }
             else {
                 debugPrint(response.error as Any)
-                completion(-2, response.error as! String)
+                completion(-2, response.error?.localizedDescription ?? "")
             }
         }
     }
@@ -233,7 +233,7 @@ class WebService: NSObject {
             }
             else {
                 debugPrint(response.error as Any)
-                completion(-2, response.error as! String, nil)
+                completion(-2, response.error?.localizedDescription ?? "", nil)
             }
         }
         
@@ -268,7 +268,7 @@ class WebService: NSObject {
             }
             else {
                 debugPrint(response.error as Any)
-                completion(-2, response.error as! String, nil)
+                completion(-2, response.error?.localizedDescription ?? "", nil)
             }
         }
     }
@@ -290,7 +290,7 @@ class WebService: NSObject {
             }
             else {
                 debugPrint(response.error as Any)
-                completion(-2, response.error as! String)
+                completion(-2, response.error?.localizedDescription ?? "")
             }
         }
     }
@@ -421,7 +421,19 @@ class WebService: NSObject {
         
         Alamofire.request(URL_TO_LOGOUT, method: .post, parameters: params, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             if response.result.error == nil {
-                
+                guard let data = response.data else {return}
+                let json = JSON(data)
+                let responseCode = json["ResponseCode"].intValue
+                let responseMesage = json["ResponseMessage"].stringValue
+                self.userId = 0
+                self.isUserLoggedIn = false
+                var userDetails = [String: String]()
+                userDetails[FIRST_NAME] = ""
+                userDetails[LAST_NAME] = ""
+                userDetails[EMAIL] = ""
+                userDetails[MOBILE_NO] = ""
+                self.userDetails = userDetails
+                completion(responseCode, responseMesage)
             }
             else {
                 debugPrint(response.error as Any)
@@ -430,7 +442,27 @@ class WebService: NSObject {
         }
     }
     
-    
+    func updateDriverDutyStatus(userId: Int, dutyStatus: Int, completion: @escaping (_ status: Int, _ message: String) -> Void) {
+        // DUTY STATUS: 0 - Offline, 1 - Free
+        let params = [
+            "ChargerId": userId,
+            "Status": dutyStatus
+        ]
+        
+        Alamofire.request(URl_TO_UPDATE_DRIVER_DUTY_STATUS, method: .post, parameters: params, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else {return}
+                let json = JSON(data)
+                let responseCode = json["ResponseCode"].intValue
+                let responseMessage = json["ResponseMessage"].stringValue
+                completion(responseCode, responseMessage)
+            }
+            else {
+                debugPrint(response.error as Any)
+                completion(-2, response.error?.localizedDescription ?? "")
+            }
+        }
+    }
     
 }
 
