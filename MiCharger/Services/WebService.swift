@@ -464,6 +464,33 @@ class WebService: NSObject {
         }
     }
     
+    func getChargerCurrentDutyStatus(userId: Int, completion: @escaping (_ status: Int, _ message: String, _ data: Int?) -> Void) {
+        let params = [
+            "ChargerId": userId
+        ]
+        
+        Alamofire.request(URL_TO_GET_CURRENT_DUTY_STATUS, method: .post, parameters: params, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                guard let data = response.data else {return}
+                let json = JSON(data)
+                let responseCode = json["ResponseCode"].intValue
+                let responseMessage = json["ResponseMessage"].stringValue
+                if responseCode == 1 {
+                    let responseData = json["ResponseData"]
+                    let status = responseData["Id"].intValue
+                    completion(responseCode, responseMessage, status)
+                }
+                else {
+                    completion(responseCode, responseMessage, nil)
+                }
+            }
+            else {
+                debugPrint(response.error as Any)
+                completion(-2, response.error?.localizedDescription ?? "", nil)
+            }
+        }
+    }
+    
 }
 
 

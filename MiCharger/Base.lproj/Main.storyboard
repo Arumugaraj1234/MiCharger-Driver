@@ -195,6 +195,9 @@
                                                                     <constraint firstAttribute="width" constant="40" id="RPj-r0-etb"/>
                                                                 </constraints>
                                                                 <state key="normal" image="phoneSmall"/>
+                                                                <connections>
+                                                                    <action selector="onCallBtnPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="E7f-ec-vlb"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6is-qI-OyT">
                                                                 <rect key="frame" x="50" y="0.0" width="40" height="25"/>
@@ -202,6 +205,9 @@
                                                                     <constraint firstAttribute="width" constant="40" id="Hbr-Ys-eo3"/>
                                                                 </constraints>
                                                                 <state key="normal" image="messageSmall"/>
+                                                                <connections>
+                                                                    <action selector="onComposeMessageBtnPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="gT4-dI-P1q"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifw-SH-U0P">
                                                                 <rect key="frame" x="100" y="0.0" width="125" height="25"/>
@@ -364,6 +370,9 @@
                                                                     <constraint firstAttribute="width" constant="40" id="0N4-JW-UjY"/>
                                                                 </constraints>
                                                                 <state key="normal" image="phoneSmall"/>
+                                                                <connections>
+                                                                    <action selector="onCallBtnPressed:" destination="kay-aZ-dE6" eventType="touchUpInside" id="zW5-mg-yTY"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZc-5d-ht1">
                                                                 <rect key="frame" x="50" y="0.0" width="40" height="25"/>
@@ -371,6 +380,9 @@
                                                                     <constraint firstAttribute="width" constant="40" id="fkL-xZ-jvt"/>
                                                                 </constraints>
                                                                 <state key="normal" image="messageSmall"/>
+                                                                <connections>
+                                                                    <action selector="onComposeMessageBtnPressed:" destination="kay-aZ-dE6" eventType="touchUpInside" id="YTz-3k-VEz"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mon-gb-AoC">
                                                                 <rect key="frame" x="100" y="0.0" width="160" height="25"/>

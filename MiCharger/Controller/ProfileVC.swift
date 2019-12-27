@@ -31,7 +31,8 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       setInitialSetup()
+        setInitialSetup()
+        getCurrentDutyStatus()
     }
     
     @IBAction func onEditBtnTapped(sender: UIButton) {
@@ -128,6 +129,22 @@ class ProfileVC: UIViewController {
             }
             else {
                 _ = SweetAlert().showAlert("Failed!", subTitle: message, style: .none)
+            }
+        }
+    }
+    
+    func getCurrentDutyStatus() {
+        webService.getChargerCurrentDutyStatus(userId: webService.userId) { (status, message, data) in
+            if status == 1 {
+                guard let status = data else {return}
+                if status == 0 {
+                    self.dutyStatus = .off
+                    self.driverStatusSwitch.setOn(false, animated: false)
+                }
+                else {
+                    self.dutyStatus = .on
+                    self.driverStatusSwitch.setOn(true, animated: false)
+                }
             }
         }
     }

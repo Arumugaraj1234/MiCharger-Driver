@@ -49,7 +49,8 @@ class LoginVC: UIViewController {
         
         if webService.isUserLoggedIn {
             //Skip to next screen
-            performSegue(withIdentifier: LOGINVC_TO_HOMEVC, sender: self)
+            appDelegate.skipToHomeScreen()
+            //performSegue(withIdentifier: LOGINVC_TO_HOMEVC, sender: self)
         }
         else {
             UIView.animate(withDuration: 3.0) {
@@ -243,7 +244,8 @@ class LoginVC: UIViewController {
                         //Skip to home screen
                         self.stopAnimating()
                         LocationService.shared.updateLocationWithTimer()
-                        self.performSegue(withIdentifier: LOGINVC_TO_HOMEVC, sender: self)
+                        self.appDelegate.skipToHomeScreen()
+                        //self.performSegue(withIdentifier: LOGINVC_TO_HOMEVC, sender: self)
                     }
                     else {
                         self.stopAnimating()

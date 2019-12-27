@@ -103,6 +103,17 @@ class HomeVC: UIViewController {
         }
     }
     
+    @IBAction func onCallBtnPressed(_ sender: UIButton) {
+        guard let acceptedOrder = webService.acceptedOrder else {return}
+        guard let number = URL(string: "tel://" + acceptedOrder.customerContactNo) else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    @IBAction func onComposeMessageBtnPressed(_ sender: UIButton) {
+        guard let acceptedOrder = webService.acceptedOrder else {return}
+        MessageService.shared.displayMessageInterface(vc: self, mobileNo: acceptedOrder.customerContactNo)
+    }
+    
     func setupInitialView() {
         locationManager.delegate = self
         mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)

@@ -109,9 +109,9 @@ class ChargerReadingVC: UIViewController {
     }
     
     @IBAction func onCompleteChargeBtnPressed(sender: UIButton) {
-        let main:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let historyVC = main.instantiateViewController(withIdentifier: "BookingHistoryVC") as! BookingHistoryVC
-        present(historyVC, animated: true, completion: nil)
+        let tabBarController = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
+        tabBarController.selectedIndex = 1
+        self.presentingViewController!.presentingViewController!.dismiss(animated: true, completion: {})
     }
     
     @IBAction func onBackBtnPressed(sender: UIButton) {

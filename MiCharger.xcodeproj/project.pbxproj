@@ -20,6 +20,7 @@
 		522A2F0E23A79961007518EA /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A2F0D23A79960007518EA /* SweetAlert.swift */; };
 		522A2F1023A7A3DD007518EA /* TextFiledExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A2F0F23A7A3DD007518EA /* TextFiledExt.swift */; };
 		522A2F1223A7A3E5007518EA /* UiImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A2F1123A7A3E5007518EA /* UiImageViewExt.swift */; };
+		5239F63223B5F9890027E748 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5239F63123B5F9890027E748 /* MessageService.swift */; };
 		52483A71238B8EFD00E75AA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52483A70238B8EFD00E75AA8 /* AppDelegate.swift */; };
 		52483A73238B8EFD00E75AA8 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52483A72238B8EFD00E75AA8 /* HomeVC.swift */; };
 		52483A75238B8EFD00E75AA8 /* BookingHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52483A74238B8EFD00E75AA8 /* BookingHistoryVC.swift */; };
@@ -55,6 +56,7 @@
 		522A2F0D23A79960007518EA /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		522A2F0F23A7A3DD007518EA /* TextFiledExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFiledExt.swift; sourceTree = "<group>"; };
 		522A2F1123A7A3E5007518EA /* UiImageViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiImageViewExt.swift; sourceTree = "<group>"; };
+		5239F63123B5F9890027E748 /* MessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		52483A6D238B8EFD00E75AA8 /* MiCharger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiCharger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52483A70238B8EFD00E75AA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52483A72238B8EFD00E75AA8 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		52483A85238B96CD00E75AA8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5239F63123B5F9890027E748 /* MessageService.swift */,
 				5292E179238BB28F00F29BAB /* LocationService.swift */,
 				522A2F0923A7696E007518EA /* WebService.swift */,
 			);
@@ -374,6 +377,7 @@
 				5292E178238BAF9900F29BAB /* UIViewExt.swift in Sources */,
 				52483A75238B8EFD00E75AA8 /* BookingHistoryVC.swift in Sources */,
 				52223B5123AE38E700209854 /* EditProfileVC.swift in Sources */,
+				5239F63223B5F9890027E748 /* MessageService.swift in Sources */,
 				52F64D6923AB92F40054A6CC /* ChargerReadingVC.swift in Sources */,
 				522A2F1023A7A3DD007518EA /* TextFiledExt.swift in Sources */,
 				52483A71238B8EFD00E75AA8 /* AppDelegate.swift in Sources */,

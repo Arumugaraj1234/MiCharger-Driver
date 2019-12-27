@@ -120,6 +120,15 @@ class CustomerTrackVC: UIViewController {
         }
     }
     
+    @IBAction func onCallBtnPressed(_ sender: UIButton) {
+        guard let number = URL(string: "tel://" + acceptedOrder.customerContactNo) else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    @IBAction func onComposeMessageBtnPressed(_ sender: UIButton) {
+        MessageService.shared.displayMessageInterface(vc: self, mobileNo: acceptedOrder.customerContactNo)
+    }
+    
     @objc
     func hideVerifyOtpView() {
         UIView.animate(withDuration: 3.0) {
